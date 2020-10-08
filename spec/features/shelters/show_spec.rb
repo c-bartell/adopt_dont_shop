@@ -48,10 +48,25 @@ describe "As a visitor" do
         expect(page).to have_content("City: #{shelter.city}")
       end
       it "state" do
+        shelter = Shelter.create(
+          name: 'MaxFund Dog Shelter',
+          address: '1005 Galapago Street',
+          city: 'Denver',
+          state: 'CO',
+          zip: '80204-3942'
+        )
         visit("/shelters/#{shelter.id}")
         expect(page).to have_content("State: #{shelter.state}")
       end
       it "zip" do
+        shelter = Shelter.create(
+          name: 'MaxFund Dog Shelter',
+          address: '1005 Galapago Street',
+          city: 'Denver',
+          state: 'CO',
+          zip: '80204-3942'
+        )
+
         visit("/shelters/#{shelter.id}")
         expect(page).to have_content("Zip: #{shelter.zip}")
       end
