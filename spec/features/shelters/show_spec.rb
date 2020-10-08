@@ -23,7 +23,6 @@ describe "As a visitor" do
       )
       it "name" do
         visit("/shelters/#{shelter.id}")
-        save_and_open_page
         expect(page).to have_content("Name: #{shelter.name}")
       end
       it "address" do
