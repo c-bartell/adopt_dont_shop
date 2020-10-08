@@ -27,7 +27,7 @@ Things you may want to cover:
 ## User Stories
 ---------------
 ```
-[ ] done
+[X] done
 
 User Story 1, Deploy your application to Heroku
 
