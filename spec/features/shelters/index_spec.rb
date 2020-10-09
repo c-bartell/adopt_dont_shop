@@ -39,4 +39,27 @@ describe "As a visitor" do
       expect(page).to have_content("#{shelter_3.name}")
     end
   end
+  # User Story 4, Shelter Creation
+  #
+  # As a visitor
+  # (shelter/index spec) When I visit the Shelter Index page
+  # Then I see a link to create a new Shelter, "New Shelter"
+  # When I click this link
+  # Then I am taken to '/shelters/new'
+  describe "when I visit the Shelter Index page" do
+    it "then I see a link to create a new shelter ('New Shelter')" do
+      visit('/shelters')
+
+      expect(page).to have_link('New Shelter')
+    end
+  end
+  describe "when I click 'New Shelter'" do
+    it "then I am taken to '/shelters/new'" do
+      visit('/shelters')
+      click_link('New Shelter')
+      
+      expect(current_path).to eq('/shelters/new')
+    end
+  end
+
 end
