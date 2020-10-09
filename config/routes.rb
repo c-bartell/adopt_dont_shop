@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   # Shelters
   get '/shelters', to: 'shelters#index'
+  get '/shelters/new', to: 'shelters#new'
   get '/shelters/:id', to: 'shelters#show'
 end

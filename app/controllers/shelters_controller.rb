@@ -3,6 +3,10 @@ class SheltersController < ApplicationController
     @shelters = Shelter.all
   end
 
+  def new
+    
+  end
+
   def show
     @shelter = Shelter.find(params[:id])
   end

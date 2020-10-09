@@ -21,19 +21,19 @@ require 'rails_helper'
 
 describe "As a visitor" do
   describe "when I visit '/shelters/new'" do
-    it "I see a form for a new shelter with" do
+    it "I see a form for a new shelter with a title and name, address, city, state, zip, and submit fields" do
       visit('/shelters/new')
 
       expect(page).to have_content('Add New Shelter')
-      expect(page).to have_field('Name:', type: 'text')
-      expect(page).to have_field('Address', type: 'text')
-      expect(page).to have_field('City:', type: 'text')
-      expect(page).to have_field('State:', type: 'text')
-      expect(page).to have_field('Zip:', type: 'text')
+      expect(page).to have_field('name_new_shelter', type: 'text')
+      expect(page).to have_field('address_new_shelter', type: 'text')
+      expect(page).to have_field('city_new_shelter', type: 'text')
+      expect(page).to have_field('state_new_shelter', type: 'text')
+      expect(page).to have_field('zip_new_shelter', type: 'text')
       expect(page).to have_field('submit_new_shelter', type: 'submit')
     end
     # describe "when I fill out the form with a new shelter's name, address, city, state, and zip and I click the button" do
-    # 
+    #
     # end
   end
 end
