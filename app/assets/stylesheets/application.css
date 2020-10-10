@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ /* Temporary style sheet to save my eyes and make this project a little more fun :3 */
+
+
+/* Temporary styling to save my poor eyes and stimulate my poor brain */
+ * {
+ background-color: black;
+ color: lime;
+ /* font-family: 'Courier', 'Lucida Console', monospace; */
+ }
