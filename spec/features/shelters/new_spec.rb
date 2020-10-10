@@ -30,7 +30,7 @@ describe "As a visitor" do
       expect(page).to have_field('city_new_shelter', type: 'text')
       expect(page).to have_field('state_new_shelter', type: 'text')
       expect(page).to have_field('zip_new_shelter', type: 'text')
-      expect(page).to have_button('submit_new_shelter', type: 'submit')
+      expect(page).to have_button('Create Shelter', type: 'submit')
     end
     # describe "when I fill out the form with a new shelter's name, address, city, state, and zip and I click the button" do
     #
