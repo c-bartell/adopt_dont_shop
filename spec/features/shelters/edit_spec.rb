@@ -73,10 +73,30 @@ RSpec.describe "Shelter Update:" do
     end
     describe "when I fill out the form with updated information and I click submit" do
       it "then a PATCH request is sent to '/shelters/:id', the shelters info is updated," do
-        #expectations
+        visit("/shelters/#{@maxfund.id}/edit")
+        fill_in('name', with: 'Aurora Dumb Friends League')
+        fill_in('address', with: '123 Candy Cane Lane')
+        fill_in('city', with: 'Aurora')
+        fill_in('state', with: 'AZ')
+        fill_in('zip', with: '12345')
+        click_button('Update Shelter')
+        visit("/shelters/#{@maxfund.id}/edit")
+        expect(page).to have_content('Aurora Dumb Friends League')
+        expect(page).to_not have_content('MaxFund Dog Shelter')
+        expect(page).to have_content('123 Candy Cane Lane')
+        expect(page).to_not have_content('1005 Galapago Street')
+        expect(page).to have_content('Aurora')
+        expect(page).to_not have_content('Denver')
+        expect(page).to have_content('AZ')
+        expect(page).to_not have_content('CO')
+        expect(page).to have_content('12345')
+        expect(page).to_not have_content('80204-3942')
       end
       it "I am redirected to the shelter's show page where I see the shelter's updated info" do
-        #expectations
+        visit("/shelters/#{@maxfund.id}/edit")
+        click_button('Update Shelter')
+        expect(current_path).to eq('/shelters')
+        expect(page).to have_content('Aurora Dumb Friends League')
       end
     end
   end
