@@ -12,10 +12,6 @@ describe 'As a visitor' do
       click_button('Create Shelter')
       expect(current_path).to eq('/shelters')
       expect(page).to have_content('MaxFund Dog Shelter')
-      expect(page).to have_content('1005 Galapago Street')
-      expect(page).to have_content('Denver')
-      expect(page).to have_content('CO')
-      expect(page).to have_content('80204-3942')
     end
   end
 end
