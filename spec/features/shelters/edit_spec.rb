@@ -47,38 +47,38 @@ RSpec.describe "Shelter Update:" do
       describe "I see a form to edit the shelter's data including:" do
         it "name," do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_field('name', value: 'text', with: @maxfund.name)
+          expect(page).to have_field('name', type: 'text', with: @maxfund.name)
         end
         it "address," do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_field('address', value: 'text', with: @maxfund.address)
+          expect(page).to have_field('address', type: 'text', with: @maxfund.address)
         end
         it "city," do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_field('city', value: 'text', with: @maxfund.city)
+          expect(page).to have_field('city', type: 'text', with: @maxfund.city)
         end
         it "state," do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_field('state', value: 'text', with: @maxfund.state)
+          expect(page).to have_field('state', type: 'text', with: @maxfund.state)
         end
         it "zip," do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_field('zip', value: 'text', with: @maxfund.zip)
+          expect(page).to have_field('zip', type: 'text', with: @maxfund.zip)
         end
         it "a submit button" do
           visit("/shelters/#{@maxfund.id}/edit")
-          expect(page).to have_button('Update Shelter')
+          expect(page).to have_button('Update Shelter', type: 'submit')
         end
       end
     end
-    # describe "when I fill out the form with updated information and I click submit" do
-    #   it "then a PATCH request is sent to '/shelters/:id', the shelters info is updated," do
-    #     #expectations
-    #   end
-    #   it "I am redirected to the shelter's show page where I see the shelter's updated info" do
-    #     #expectations
-    #   end
-    # end
+    describe "when I fill out the form with updated information and I click submit" do
+      it "then a PATCH request is sent to '/shelters/:id', the shelters info is updated," do
+        #expectations
+      end
+      it "I am redirected to the shelter's show page where I see the shelter's updated info" do
+        #expectations
+      end
+    end
   end
 end
 
