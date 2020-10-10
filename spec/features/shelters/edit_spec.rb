@@ -101,37 +101,3 @@ RSpec.describe "Shelter Update:" do
     end
   end
 end
-
-#alternative
-# RSpec.describe "Shelter Update:" do
-#   describe "As a visitor" do
-#     before(:all) do
-#       @maxfund = Shelter.create(
-#         name: 'MaxFund Dog Shelter',
-#         address: '1005 Galapago Street',
-#         city: 'Denver',
-#         state: 'CO',
-#         zip: '80204-3942'
-#       )
-#       visit("/shelters/#{@maxfund.id}")
-#     end
-#     describe "when I visit a shelter show page" do
-#       it "then I see a link to update the shelter 'Update Shelter'" do
-#         #expectations
-#       end
-#     end
-#     describe "When I click the link 'Update Shelter'" do
-#       it "Then I am taken to '/shelters/:id/edit' where I  see a form to edit the shelter's data including: name, address, city, state, zip, and a submit button" do
-#         #expectations
-#       end
-#     end
-#     describe "When I fill out the form with updated information
-#     And I click the button to submit the form" do
-#       it "Then a `PATCH` request is sent to '/shelters/:id',
-#       the shelter's info is updated,
-#       and I am redirected to the Shelter's Show page where I see the shelter's updated info" do
-#         #expectations
-#       end
-#     end
-#   end
-# end
