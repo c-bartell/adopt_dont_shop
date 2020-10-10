@@ -1,6 +1,7 @@
 <h1>Add New Shelter</h1>
 
 <form action='/shelters' method='post'>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
   <label for='name_new_shelter'>Name:</label><br>
   <input id='name_new_shelter' name='name_new_shelter' type='text'><br>
   <label for=''>Address:</label><br>
