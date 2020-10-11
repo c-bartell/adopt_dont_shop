@@ -113,7 +113,7 @@ and I am redirected to the Shelter's Show page where I see the shelter's updated
 ```
 
 ```
-[ ] done
+[X] done
 
 User Story 6, Shelter Delete
 
