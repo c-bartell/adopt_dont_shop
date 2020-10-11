@@ -73,9 +73,9 @@ RSpec.describe "Pets Index:" do
       describe "then I see each Pet in the system, including the Pet's" do
         it "image" do
           visit('/pets')
+          require 'pry' ; binding.pry
           @pets.each do |pet|
-            #expectations
-            require 'pry' ; binding.pry
+            expect(page).to have_xpath("//img[@src='#{pet.image}']")
           end
         end
         it "name" do
