@@ -41,21 +41,27 @@ RSpec.describe "Pet Show:" do
       name: 'Admiral Muffins, III',
       approximate_age: '2',
       sex: 'M',
-      shelter_id: @shelter_1.id
+      shelter_id: @shelter_1.id,
+      description: 'A pug in a rug.',
+      adoption_status: 'adoptable'
     )
     @pet_2 = Pet.create!(
       image: 'https://cdn.pixabay.com/photo/2017/01/30/23/19/cat-2022341_960_720.jpg',
       name: 'Commodore Poptart, Esq.',
       approximate_age: '6',
       sex: 'F',
-      shelter_id: @shelter_2.id
+      shelter_id: @shelter_2.id,
+      description: 'A lil chonker.',
+      adoption_status: 'adoptable'
     )
     @pet_3 = Pet.create!(
       image: 'https://cdn.pixabay.com/photo/2017/11/15/13/52/bulldog-2952049_960_720.jpg',
       name: 'Banjo, Dutchess of Snortleshire',
       approximate_age: '3',
       sex: 'F',
-      shelter_id: @shelter_3.id
+      shelter_id: @shelter_3.id,
+      description: 'MAJESTIC.',
+      adoption_status: 'pending adoption'
     )
     @pets = [@pet_1, @pet_2, @pet_3]
   end
@@ -69,26 +75,34 @@ RSpec.describe "Pet Show:" do
   end
   describe "As a visitor:" do
     describe "when I visit '/pets/:id'" do
-        describe "then I see the pet with that id including the pet's:" do
+      describe "then I see the pet with that id including the pet's:" do
+        @pets.each do |pet|
           it "image" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_xpath("//img[@src='#{pet.image}']")
           end
           it "name" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_content("#{pet.name}")
           end
           it "description" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_content("Description: #{pet.description}")
           end
           it "approximate age" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_content("Approximate Age: #{pet.approximate_age}")
           end
           it "sex" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_content("Sex: #{pet.sex}")
           end
           it "adoptable/pending adoption status" do
-            #code
+            visit("/pets/#{pet.id}")
+            expect(page).to have_content("Adoption Status: #{pet.adoption_status}")
           end
         end
+      end
     end
   end
 end
