@@ -149,7 +149,7 @@ NOTE: Images should be stored as a string as the url pointing to an externally h
 ```
 
 ```
-[ ] done
+[X] done
 
 User Story 8, Shelter Pets Index
 
