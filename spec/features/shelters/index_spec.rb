@@ -24,11 +24,15 @@ describe "As a visitor" do
         state: 'CO',
         zip: '80231'
       )
+      shelters = [shelter_1, shelter_2, shelter_3]
       visit('/shelters')
       expect(page).to have_content('Shelters')
-      expect(page).to have_content("#{shelter_1.name}")
-      expect(page).to have_content("#{shelter_2.name}")
-      expect(page).to have_content("#{shelter_3.name}")
+      shelters.each do |shelter|
+        expect(page).to have_content("#{shelter.name}")
+      end
+      # expect(page).to have_content("#{shelter_1.name}")
+      # expect(page).to have_content("#{shelter_2.name}")
+      # expect(page).to have_content("#{shelter_3.name}")
     end
     it "each shelter name is a link to the shelter's show page" do
       shelter_1 = Shelter.create(
@@ -52,18 +56,25 @@ describe "As a visitor" do
         state: 'CO',
         zip: '80231'
       )
-      visit('/shelters')
-      expect(page).to have_link("#{shelter_1.name}")
-      click_link("#{shelter_1.name}")
-      expect(path).to eq("/shelters/#{shelter_1.id}")
-      visit('/shelters')
-      expect(page).to have_link("#{shelter_2.name}")
-      click_link("#{shelter_2.name}")
-      expect(path).to eq("/shelters/#{shelter_2.id}")
-      visit('/shelters')
-      expect(page).to have_link("#{shelter_3.name}")
-      click_link("#{shelter_3.name}")
-      expect(path).to eq("/shelters/#{shelter_3.id}")
+      shelters = [shelter_1, shelter_2, shelter_3]
+      shelters.each do |shelter|
+        visit('/shelters')
+        expect(page).to have_link("#{shelter.name}")
+        click_link("#{shelter.name}")
+        expect(path).to eq("/shelters/#{shelter.id}")
+      end
+      # visit('/shelters')
+      # expect(page).to have_link("#{shelter_1.name}")
+      # click_link("#{shelter_1.name}")
+      # expect(path).to eq("/shelters/#{shelter_1.id}")
+      # visit('/shelters')
+      # expect(page).to have_link("#{shelter_2.name}")
+      # click_link("#{shelter_2.name}")
+      # expect(path).to eq("/shelters/#{shelter_2.id}")
+      # visit('/shelters')
+      # expect(page).to have_link("#{shelter_3.name}")
+      # click_link("#{shelter_3.name}")
+      # expect(path).to eq("/shelters/#{shelter_3.id}")
     end
   end
   describe "when I visit the Shelter Index page" do
