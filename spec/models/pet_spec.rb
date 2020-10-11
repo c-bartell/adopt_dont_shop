@@ -29,7 +29,9 @@ RSpec.describe Pet, type: :model do
         name: 'Admiral Muffins, III',
         approximate_age: '2',
         sex: 'M',
-        shelter_id: shelter.id
+        shelter_id: shelter.id,
+        description: 'A pug in a rug.',
+        adoption_status: 'adoptable'
       )
       expect(pet.shelter_name).to eq(shelter.name)
     end

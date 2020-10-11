@@ -44,21 +44,27 @@ RSpec.describe "Pets Index:" do
           name: 'Admiral Muffins, III',
           approximate_age: '2',
           sex: 'M',
-          shelter_id: @shelter_1.id
+          shelter_id: @shelter_1.id,
+          description: 'A pug in a rug.',
+          adoption_status: 'adoptable'
         )
         @pet_2 = Pet.create!(
           image: 'https://cdn.pixabay.com/photo/2017/01/30/23/19/cat-2022341_960_720.jpg',
           name: 'Commodore Poptart, Esq.',
           approximate_age: '6',
           sex: 'F',
-          shelter_id: @shelter_2.id
+          shelter_id: @shelter_2.id,
+          description: 'A lil chonker.',
+          adoption_status: 'adoptable'
         )
         @pet_3 = Pet.create!(
           image: 'https://cdn.pixabay.com/photo/2017/11/15/13/52/bulldog-2952049_960_720.jpg',
           name: 'Banjo, Dutchess of Snortleshire',
           approximate_age: '3',
           sex: 'F',
-          shelter_id: @shelter_3.id
+          shelter_id: @shelter_3.id,
+          description: 'MAJESTIC.',
+          adoption_status: 'pending adoption'
         )
         @pets = [@pet_1, @pet_2, @pet_3]
       end
