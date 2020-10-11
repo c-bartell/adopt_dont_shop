@@ -55,7 +55,7 @@ RSpec.describe "Pets Index:" do
         )
         @pet_3 = Pet.create!(
           image: 'https://cdn.pixabay.com/photo/2017/11/15/13/52/bulldog-2952049_960_720.jpg',
-          name: 'Banjo, Duke of Snortleshire',
+          name: 'Banjo, Dutchess of Snortleshire',
           approximate_age: '3',
           sex: 'F',
           shelter_id: @shelter_3.id
