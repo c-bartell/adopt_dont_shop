@@ -7,4 +7,5 @@ class Pet < ApplicationRecord
   validates_presence_of :shelter_id
 
   # Relationships
+  belongs_to :shelter
 end
