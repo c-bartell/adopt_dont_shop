@@ -63,11 +63,11 @@ RSpec.describe "Pets Index:" do
         @pets = [@pet_1, @pet_2, @pet_3]
       end
       after(:all) do
-        @shelters.each do |shelter|
-          shelter.destroy
-        end
         @pets.each do |pet|
           pet.destroy
+        end
+        @shelters.each do |shelter|
+          shelter.destroy
         end
       end
       describe "then I see each Pet in the system, including the Pet's" do
