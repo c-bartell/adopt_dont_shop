@@ -1,5 +1,5 @@
 <h2>Edit Shelter Info</h2>
-<%= form_tag("/shelters/#{@shelter.id}", method: :post) do %>
+<%= form_tag("/shelters/#{@shelter.id}", method: :patch) do %>
   <%= label_tag 'name', 'Name:' %>
   <%= text_field_tag 'name', "#{@shelter.name}" %><br>
   <%= label_tag 'address', 'Address:' %>

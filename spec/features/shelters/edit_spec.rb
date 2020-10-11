@@ -80,7 +80,7 @@ RSpec.describe "Shelter Update:" do
         fill_in('state', with: 'AZ')
         fill_in('zip', with: '12345')
         click_button('Update Shelter')
-        visit("/shelters/#{@maxfund.id}/edit")
+        visit("/shelters/#{@maxfund.id}")
         expect(page).to have_content('Aurora Dumb Friends League')
         expect(page).to_not have_content('MaxFund Dog Shelter')
         expect(page).to have_content('123 Candy Cane Lane')
@@ -94,6 +94,11 @@ RSpec.describe "Shelter Update:" do
       end
       it "I am redirected to the shelter's show page where I see the shelter's updated info" do
         visit("/shelters/#{@maxfund.id}/edit")
+        fill_in('name', with: 'Aurora Dumb Friends League')
+        fill_in('address', with: '123 Candy Cane Lane')
+        fill_in('city', with: 'Aurora')
+        fill_in('state', with: 'AZ')
+        fill_in('zip', with: '12345')
         click_button('Update Shelter')
         expect(current_path).to eq('/shelters')
         expect(page).to have_content('Aurora Dumb Friends League')
