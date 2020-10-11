@@ -99,7 +99,16 @@ RSpec.describe "Shelter Pets Index:" do
           end
         end
         it "sex" do
-          #code
+          @shelters.each do |shelter|
+            visit("/shelters/#{shelter.id}/pets")
+            @pets.each do |pet|
+              if pet.shelter_id == shelter.id
+                expect(page).to have_content("Sex: #{pet.sex}")
+              else
+                expect(page).to_not have_content("Sex: #{pet.sex}")
+              end
+            end
+          end
         end
       end
     end
