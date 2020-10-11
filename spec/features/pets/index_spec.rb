@@ -1,4 +1,4 @@
-require 'rails-helper'
+require 'rails_helper'
 
 # User Story 7, Pet Index
 #
@@ -40,21 +40,21 @@ RSpec.describe "Pets Index:" do
         )
         @shelters = [@shelter_1, @shelter_2, @shelter_3]
         @pet_1 = Pet.create!(
-          image_url: 'https://cdn.pixabay.com/photo/2016/02/19/11/53/pug-1210025_960_720.jpg',
+          image: 'https://cdn.pixabay.com/photo/2016/02/19/11/53/pug-1210025_960_720.jpg',
           name: 'Admiral Muffins, III',
           approximate_age: '2',
           sex: 'M',
           shelter_id: @shelter_1.id
         )
         @pet_2 = Pet.create!(
-          image_url: 'https://cdn.pixabay.com/photo/2017/01/30/23/19/cat-2022341_960_720.jpg',
+          image: 'https://cdn.pixabay.com/photo/2017/01/30/23/19/cat-2022341_960_720.jpg',
           name: 'Commodore Poptart, Esq.',
           approximate_age: '6',
           sex: 'F',
           shelter_id: @shelter_2.id
         )
         @pet_3 = Pet.create!(
-          image_url: 'https://cdn.pixabay.com/photo/2017/11/15/13/52/bulldog-2952049_960_720.jpg',
+          image: 'https://cdn.pixabay.com/photo/2017/11/15/13/52/bulldog-2952049_960_720.jpg',
           name: 'Banjo, Duke of Snortleshire',
           approximate_age: '3',
           sex: 'F',
@@ -63,10 +63,10 @@ RSpec.describe "Pets Index:" do
         @pets = [@pet_1, @pet_2, @pet_3]
       end
       after(:all) do
-        shelters.each do |shelter|
+        @shelters.each do |shelter|
           shelter.destroy
         end
-        pets.each do |pet|
+        @pets.each do |pet|
           pet.destroy
         end
       end
