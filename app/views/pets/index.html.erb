@@ -1,5 +1,6 @@
 <h1>Pets</h1>
 
 <% @pets.each do |pet| %>
-  <%= image_tag "#{pet.image}", size:'480x360' %><br>
+  <%= content_tag :h2, pet.name %><br>
+  <%= image_tag pet.image, size:'480x360' %><br>
 <% end %>
