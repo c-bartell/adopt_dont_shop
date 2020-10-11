@@ -1,74 +1,36 @@
 require 'rails_helper'
 
-# User Story 3, Shelter Show
-#
-# As a visitor
-# When I visit '/shelters/:id'
-# Then I see the shelter with that id including the shelter's:
-# - name
-# - address
-# - city
-# - state
-# - zip
-
 describe "As a visitor" do
   describe "when I visit '/shelters/:id'" do
     describe "then I see the shelter with that id including the shelter's:" do
-      it "name" do
-        shelter = Shelter.create(
+      before :each do
+        @shelter = Shelter.create(
           name: 'MaxFund Dog Shelter',
           address: '1005 Galapago Street',
           city: 'Denver',
           state: 'CO',
           zip: '80204-3942'
         )
-        visit("/shelters/#{shelter.id}")
-        expect(page).to have_content("Name: #{shelter.name}")
+      end
+      it "name" do
+        visit("/shelters/#{@shelter.id}")
+        expect(page).to have_content("Name: #{@shelter.name}")
       end
       it "address" do
-        shelter = Shelter.create(
-          name: 'MaxFund Dog Shelter',
-          address: '1005 Galapago Street',
-          city: 'Denver',
-          state: 'CO',
-          zip: '80204-3942'
-        )
-        visit("/shelters/#{shelter.id}")
-        expect(page).to have_content("Address: #{shelter.address}")
+        visit("/shelters/#{@shelter.id}")
+        expect(page).to have_content("Address: #{@shelter.address}")
       end
       it "city" do
-        shelter = Shelter.create(
-          name: 'MaxFund Dog Shelter',
-          address: '1005 Galapago Street',
-          city: 'Denver',
-          state: 'CO',
-          zip: '80204-3942'
-        )
-        visit("/shelters/#{shelter.id}")
-        expect(page).to have_content("City: #{shelter.city}")
+        visit("/shelters/#{@shelter.id}")
+        expect(page).to have_content("City: #{@shelter.city}")
       end
       it "state" do
-        shelter = Shelter.create(
-          name: 'MaxFund Dog Shelter',
-          address: '1005 Galapago Street',
-          city: 'Denver',
-          state: 'CO',
-          zip: '80204-3942'
-        )
-        visit("/shelters/#{shelter.id}")
-        expect(page).to have_content("State: #{shelter.state}")
+        visit("/shelters/#{@shelter.id}")
+        expect(page).to have_content("State: #{@shelter.state}")
       end
       it "zip" do
-        shelter = Shelter.create(
-          name: 'MaxFund Dog Shelter',
-          address: '1005 Galapago Street',
-          city: 'Denver',
-          state: 'CO',
-          zip: '80204-3942'
-        )
-
-        visit("/shelters/#{shelter.id}")
-        expect(page).to have_content("Zip: #{shelter.zip}")
+        visit("/shelters/#{@shelter.id}")
+        expect(page).to have_content("Zip: #{@shelter.zip}")
       end
     end
   end

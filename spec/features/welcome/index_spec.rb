@@ -9,4 +9,12 @@ describe "As a user" do
       expect(page).to have_link('Shelters')
     end
   end
+  describe "when I click on the 'Shelters' link" do
+    it "I am taken to '/shelters'" do
+      visit('/')
+      
+      click_link('Shelters')
+      expect(current_path).to eq('/shelters')
+    end
+  end
 end
