@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Pets
   get '/pets', to: 'pets#index'
+  get '/pets/:id', to: 'pets#show'
 
   # Shelter Pets
   get '/shelters/:id/pets', to: 'shelterpets#index'
