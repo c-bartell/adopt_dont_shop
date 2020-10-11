@@ -104,8 +104,6 @@ RSpec.describe "Shelter Pets Index:" do
             @pets.each do |pet|
               if pet.shelter_id == shelter.id
                 expect(page).to have_content("Sex: #{pet.sex}")
-              else
-                expect(page).to_not have_content("Sex: #{pet.sex}")
               end
             end
           end
