@@ -30,6 +30,41 @@ describe "As a visitor" do
       expect(page).to have_content("#{shelter_2.name}")
       expect(page).to have_content("#{shelter_3.name}")
     end
+    it "each shelter name is a link to the shelter's show page" do
+      shelter_1 = Shelter.create(
+        name: 'MaxFund Dog Shelter',
+        address: '1005 Galapago Street',
+        city: 'Denver',
+        state: 'CO',
+        zip: '80204-3942'
+      )
+      shelter_2 = Shelter.create(
+        name: 'MaxFund Cat Shelter',
+        address: '720 W. 10th Avenue',
+        city: 'Denver',
+        state: 'CO',
+        zip: '80204'
+      )
+      shelter_3 = Shelter.create(
+        name: 'Denver Dumb Friends League',
+        address: '2080 S Quebec St',
+        city: 'Denver',
+        state: 'CO',
+        zip: '80231'
+      )
+      visit('/shelters')
+      expect(page).to have_link("#{shelter_1.name}")
+      click_link("#{shelter_1.name}")
+      expect(path).to eq("/shelters/#{shelter_1.id}")
+      visit('/shelters')
+      expect(page).to have_link("#{shelter_2.name}")
+      click_link("#{shelter_2.name}")
+      expect(path).to eq("/shelters/#{shelter_2.id}")
+      visit('/shelters')
+      expect(page).to have_link("#{shelter_3.name}")
+      click_link("#{shelter_3.name}")
+      expect(path).to eq("/shelters/#{shelter_3.id}")
+    end
   end
   describe "when I visit the Shelter Index page" do
     it "then I see a link to create a new shelter ('New Shelter')" do
