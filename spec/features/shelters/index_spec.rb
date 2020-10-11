@@ -1,11 +1,5 @@
 require 'rails_helper'
 
-# User Story 2, Shelter Index
-#
-# As a visitor
-# When I visit '/shelters'
-# Then I see the name of each shelter in the system
-
 describe "As a visitor" do
   describe "when I visit '/shelters'" do
     it "then I see the name of each shelter in the system" do
@@ -30,26 +24,16 @@ describe "As a visitor" do
         state: 'CO',
         zip: '80231'
       )
-
       visit('/shelters')
-
       expect(page).to have_content('Shelters')
       expect(page).to have_content("#{shelter_1.name}")
       expect(page).to have_content("#{shelter_2.name}")
       expect(page).to have_content("#{shelter_3.name}")
     end
   end
-  # User Story 4, Shelter Creation
-  #
-  # As a visitor
-  # (shelter/index spec) When I visit the Shelter Index page
-  # Then I see a link to create a new Shelter, "New Shelter"
-  # When I click this link
-  # Then I am taken to '/shelters/new'
   describe "when I visit the Shelter Index page" do
     it "then I see a link to create a new shelter ('New Shelter')" do
       visit('/shelters')
-
       expect(page).to have_link('New Shelter')
     end
   end
@@ -57,9 +41,7 @@ describe "As a visitor" do
     it "then I am taken to '/shelters/new'" do
       visit('/shelters')
       click_link('New Shelter')
-      
       expect(current_path).to eq('/shelters/new')
     end
   end
-
 end
