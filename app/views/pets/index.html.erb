@@ -1,0 +1,9 @@
+<h1>Pets</h1>
+
+<% @pets.each do |pet| %>
+  <%= image_tag pet.image, size:'480x360' %><br>
+  <%= content_tag :h2, pet.name %>
+  <%= content_tag :p, "Approximate Age: #{pet.approximate_age}" %>
+  <%= content_tag :p, "Sex: #{pet.sex}" %>
+  <%= content_tag :p, "Shelter: #{pet.shelter_name}" %>
+<% end %>
