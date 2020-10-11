@@ -8,4 +8,9 @@ class Pet < ApplicationRecord
 
   # Relationships
   belongs_to :shelter
+
+  # Instance Methods
+  def shelter_name
+    Shelter.find(shelter_id).name
+  end
 end
