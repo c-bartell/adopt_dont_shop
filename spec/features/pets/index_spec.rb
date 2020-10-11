@@ -79,25 +79,25 @@ RSpec.describe "Pets Index:" do
         end
         it "name" do
           visit('/pets')
-          @pets.each do
+          @pets.each do |pet|
             expect(page).to have_content("#{pet.name}")
           end
         end
         it "approximate age" do
           visit('/pets')
-          @pets.each do
+          @pets.each do |pet|
             expect(page).to have_content("#{pet.approximate_age}")
           end
         end
         it "sex" do
           visit('/pets')
-          @pets.each do
+          @pets.each do |pet|
             expect(page).to have_content("#{pet.sex}")
           end
         end
         it "name of the shelter where the pet is currently located" do
           visit('/pets')
-          @pets.each do
+          @pets.each do |pet|
             shelter_name = Shelter.find(pet.shelter_id).name
             expect(page).to have_content("#{shelter_name}")
           end
