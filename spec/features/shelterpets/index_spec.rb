@@ -87,7 +87,16 @@ RSpec.describe "Shelter Pets Index:" do
           end
         end
         it "approximate age" do
-          #code
+          @shelters.each do |shelter|
+            visit("/shelters/#{shelter.id}/pets")
+            @pets.each do |pet|
+              if pet.shelter_id == shelter.id
+                expect(page).to have_content("Age: #{pet.approximate_age}")
+              else
+                expect(page).to_not have_content("Age: #{pet.approximate_age}")
+              end
+            end
+          end
         end
         it "sex" do
           #code
