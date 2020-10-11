@@ -62,7 +62,17 @@ RSpec.describe "Shelter Pets Index:" do
           end
         end
         it "image" do
-          #code
+          @shelters.each do |shelter|
+            visit("/shelters/#{shelter.id}/pets")
+            expect(page).to have_content(shelter.name)
+            @pets.each do |pet|
+              if pet.shelter_id == shelter.id
+                expect(page).to have_xpath("//img[@src='#{pet.image}']")
+              else
+                expect(page).to_not have_xpath("//img[@src='#{pet.image}']")
+              end
+            end
+          end
         end
         it "name" do
           #code
